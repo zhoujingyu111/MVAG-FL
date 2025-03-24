@@ -11,4 +11,4 @@ Evaluation Metrics： Both image-level and pixel-level met-rics are typically us
 
 
 Results:
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/3c137abd-628e-42a3-a609-e779d7092476)

@@ -37,7 +37,8 @@ Both image-level and pixel-level met-rics are typically used to evaluate algorit
 
 
 **Results on Real-IAD:**
-![image](https://github.com/user-attachments/assets/3c137abd-628e-42a3-a609-e779d7092476)
+![image](https://github.com/user-attachments/assets/3327efb5-2a54-4a9c-a9cd-2191f9c3547d)
+
 **Results on ON MVTEC AD and VISA DATASETS:**
 ![image](https://github.com/user-attachments/assets/b7a27826-7ce1-4914-9261-50ca4c94b9ce)
 

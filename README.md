@@ -1,13 +1,13 @@
-MVAG-FL: Multi-View Attention Guided Feature Learning for Industrial Anomaly Detection
+**MVAG-FL: Multi-View Attention Guided Feature Learning for Industrial Anomaly Detection**
 
 The code is a preliminary version, so it may be somewhat messy with minor errors. We plan to refine and reformat it after the paper is accepted.
 
-Dataset：
+**Dataset：**
 Real-IAD： A new large-scale challenging industrial AD dataset, containing 30 classes with totally 151,050 images; 2,000 ∼ 5,000 resolution; 0.01% ~ 6.75% defect proportions; 1:1 ~ 1:10 defect ratio.
 Download and extract Real-IAD into data/realiad.  ：https://realiad4ad.github.io/Real-IAD/
 
 
-Environments:
+**Environments:**
 Create a new conda environment and install required packages.
 
 conda create -n env python=3.8.12
@@ -32,8 +32,12 @@ pip3 install fastprogress geomloss FrEIA mamba_ssm adeval fvcore==0.1.5.post2022
 All experiments are trained for 50,000 iterations on a single NVIDIA RTX A6000 with the Pytorch framework.
 
 
-Evaluation Metrics： Both image-level and pixel-level met-rics are typically used to evaluate algorithm performance in USDD. Image-level metrics assess whether an entire product is anomalous, while pixel-level metrics measure defect localization and can further evaluate defect severity. Based on previous defect detection work, seven evaluation metrics are employed. Image-level performance is evaluated using Area Under the Receiver Operator Curve (AUROC), Average Precision (AP), and F1 score at the optimal threshold (F-max). Pixel-level performance is measured by AUROC, AP, F-max, and the Area Under the Per Region Overlap (AUPRO). To provide a comprehensive assessment of the model’s perfor-mance, we compute the average of the all-evaluation metrics mentioned above, referred to as mAD. The final dataset result is calculated as the average across all classes.
+**Evaluation Metrics：**
+Both image-level and pixel-level met-rics are typically used to evaluate algorithm performance in USDD. Image-level metrics assess whether an entire product is anomalous, while pixel-level metrics measure defect localization and can further evaluate defect severity. Based on previous defect detection work, seven evaluation metrics are employed. Image-level performance is evaluated using Area Under the Receiver Operator Curve (AUROC), Average Precision (AP), and F1 score at the optimal threshold (F-max). Pixel-level performance is measured by AUROC, AP, F-max, and the Area Under the Per Region Overlap (AUPRO). To provide a comprehensive assessment of the model’s perfor-mance, we compute the average of the all-evaluation metrics mentioned above, referred to as mAD. The final dataset result is calculated as the average across all classes.
 
 
-Results:
+**Results on Real-IAD:**
 ![image](https://github.com/user-attachments/assets/3c137abd-628e-42a3-a609-e779d7092476)
+**Results on ON MVTEC AD and VISA DATASETS:**
+![image](https://github.com/user-attachments/assets/b7a27826-7ce1-4914-9261-50ca4c94b9ce)
+

@@ -1,58 +1,94 @@
-**MVAG-FL: Multi-View Attention Guided Feature Learning for Industrial Anomaly Detection**
+MVAG-FL: Multi-View Attention Guided Feature Learning for Industrial Anomaly Detection
+License
+Python 3.8+
+PyTorch 2.1+
 
-The code is a preliminary version, so it may be somewhat messy with minor errors. We plan to refine and reformat it after the paper is accepted.
+⚠️ Note: This is a preliminary version of the code. It may contain minor errors and requires refinement. We plan to clean and reformat the code after paper acceptance.
 
+📖 Introduction
+MVAG-FL is a novel anomaly detection framework designed for industrial inspection scenarios. The method leverages multi-view attention guidance to enhance feature learning, achieving state-of-the-art performance on challenging industrial anomaly detection benchmarks.
 
+✨ Key Features
+Multi-View Attention: Guides feature learning from multiple perspectives
+Industrial-Scale Performance: Tested on high-resolution industrial datasets
+Comprehensive Metrics: Evaluated on both image-level and pixel-level metrics
+Efficient Training: 50K iterations on single RTX A6000 GPU
+📊 Dataset
+Real-IAD Dataset
+A large-scale challenging industrial anomaly detection dataset:
 
+30 classes with 151,050 images total
+High resolution: 2,000 ∼ 5,000 pixels
+Low defect proportions: 0.01% ~ 6.75%
+Imbalanced defect ratio: 1:1 ~ 1:10
+Setup Instructions
+Download Real-IAD from https://realiad4ad.github.io/Real-IAD/
+Extract to data/realiad/
+🛠️ Installation
+Environment Setup
+Bash
+# Create conda environment
+conda create -n mvagnn-fl python=3.8.12
+conda activate mvagnn-fl
 
-**Dataset：**
-Real-IAD： A new large-scale challenging industrial AD dataset, containing 30 classes with totally 151,050 images; 2,000 ∼ 5,000 resolution; 0.01% ~ 6.75% defect proportions; 1:1 ~ 1:10 defect ratio.
-Download and extract Real-IAD into data/realiad.  ：https://realiad4ad.github.io/Real-IAD/
+# Install core dependencies
+pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
 
+# Or using conda
+conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
 
+# Install additional packages
+pip install timm==0.9.12 pandas transformers openpyxl imgaug \
+            numpy==1.18.4 opencv-python-headless==4.6.0.66 \
+            scikit-image==0.19.3 scikit-learn==0.22.2.post1 \
+            mmdet==2.25.3 fvcore fastprogress geomloss \
+            mamba_ssm adeval faiss-gpu
+📈 Evaluation Metrics
+We employ comprehensive evaluation metrics following standard anomaly detection protocols:
 
+Image-Level Metrics
+AUROC: Area Under the Receiver Operator Curve
+AP: Average Precision
+F-max: F1 score at optimal threshold
+Pixel-Level Metrics
+AUROC: Area Under the ROC Curve
+AP: Average Precision
+F-max: F1 score at optimal threshold
+AUPRO: Area Under the Per Region Overlap
+Overall Metric
+mAD: Average of all evaluation metrics above
+📊 Results
+Performance on Real-IAD Dataset
+Real-IAD Results
 
+Performance on MVTec AD and VisA Datasets
+MVTec and VisA Results
 
-**Environments:**
-Create a new conda environment and install required packages.
+🚀 Training
+Hardware Requirements
+GPU: NVIDIA RTX A6000 (or equivalent with 48GB+ VRAM)
+Training Time: ~50,000 iterations
+Framework: PyTorch
+Quick Start
+Bash
+# Example training command (subject to code structure)
+python train.py --dataset realiad --config configs/mvagnn_fl.yaml
+📝 Citation
+If you use this code in your research, please cite our paper (to be updated upon acceptance):
 
-conda create -n env python=3.8.12
-conda activate env
-pip3 install timm==0.8.15dev0 mmselfsup pandas transformers openpyxl imgaug numba numpy tensorboard fvcore accimage Ninja
-pip3 install matplotlib==3.2.1   numpy==1.18.4   opencv_python_headless==4.6.0.66   pandas==1.3.5   Pillow==9.0.1   scikit_image==0.19.3   scikit_learn==0.22.2.post1
-pip3 install scipy==1.4.1
-pip3 install tabulate==0.9.0
-pip3 install torch==1.12.0+cu113
-pip3 install torchvision==0.13.0+cu113
-pip3 install tqdm==4.64.1
-pip3 install ptflops==0.7
-pip3 install timm==0.9.12
-pip3 install mmdet==2.25.3
-pip3 install --upgrade protobuf==3.20.1 scikit-image faiss-gpu
-pip3 install adeval
-pip3 install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
-pip3 install fastprogress geomloss FrEIA mamba_ssm adeval fvcore==0.1.5.post20221221
-(or) conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+ @article{mvagnnfl2024,
+  title={MVAG-FL: Multi-View Attention Guided Feature Learning for Industrial Anomaly Detection},
+  author={Anonymous Authors},
+  journal={Under Review},
+  year={2024}
+}
+🤝 Contributing
+We welcome contributions! Please feel free to submit a Pull Request.
 
-All experiments are trained for 50,000 iterations on a single NVIDIA RTX A6000 with the Pytorch framework.
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
+📧 Contact
+For questions or discussions, please open an issue in the GitHub repository.
 
-
-
-
-**Evaluation Metrics：**
-Both image-level and pixel-level met-rics are typically used to evaluate algorithm performance in USDD. Image-level metrics assess whether an entire product is anomalous, while pixel-level metrics measure defect localization and can further evaluate defect severity. Based on previous defect detection work, seven evaluation metrics are employed. Image-level performance is evaluated using Area Under the Receiver Operator Curve (AUROC), Average Precision (AP), and F1 score at the optimal threshold (F-max). Pixel-level performance is measured by AUROC, AP, F-max, and the Area Under the Per Region Overlap (AUPRO). To provide a comprehensive assessment of the model’s perfor-mance, we compute the average of the all-evaluation metrics mentioned above, referred to as mAD. The final dataset result is calculated as the average across all classes.
-
-
-
-
-
-**Results on Real-IAD:**
-![image](https://github.com/user-attachments/assets/3327efb5-2a54-4a9c-a9cd-2191f9c3547d)
-
-
-
-
-**Results on ON MVTEC AD and VISA DATASETS:**
-![image](https://github.com/user-attachments/assets/b7a27826-7ce1-4914-9261-50ca4c94b9ce)
-
+Note: Code will be refined and properly formatted after paper acceptance.

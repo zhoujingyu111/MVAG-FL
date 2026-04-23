@@ -18,7 +18,7 @@ Download and extract Real-IAD into data/realiad.  ：https://realiad4ad.github.i
 
 ##  **Environments:**
 Create a new conda environment and install required packages.
-
+```
 conda create -n env python=3.8.12
 conda activate env
 pip3 install timm==0.8.15dev0 mmselfsup pandas transformers openpyxl imgaug numba numpy tensorboard fvcore accimage Ninja
@@ -36,7 +36,7 @@ pip3 install adeval
 pip3 install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
 pip3 install fastprogress geomloss FrEIA mamba_ssm adeval fvcore==0.1.5.post20221221
 (or) conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
-
+```
 All experiments are trained for 50,000 iterations on a single NVIDIA RTX A6000 with the Pytorch framework.
 
 

@@ -1,6 +1,6 @@
 **MVAG-FL: Multi-View Attention Guided Feature Learning for Industrial Anomaly Detection**
 
-> **📢 News (2026-04-15):** Our paper has been accepted by **IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)**! The code is a preliminary version, so it may be somewhat messy with minor errors. We plan to refine and reformat it after the paper is accepted. ⭐
+> **📢 News (2025-05-22):** Our paper has been accepted by **IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)**! The code is a preliminary version, so it may be somewhat messy with minor errors. We plan to refine and reformat it after the paper is accepted. ⭐
 > 
 
 
